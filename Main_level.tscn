@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://k6mis7y41oxm"]
+
+[ext_resource type="PackedScene" uid="uid://heca0f5m1v3u" path="res://Objects_scene.tscn" id="1_0f8in"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ipwn"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_h3niy"]
+sky_material = SubResource("ProceduralSkyMaterial_2ipwn")
+
+[sub_resource type="Environment" id="Environment_3etnw"]
+background_mode = 2
+sky = SubResource("Sky_h3niy")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Main_level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_3etnw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.701204, 0.41662, -0.578568, -0.0201376, 0.822749, 0.568047, 0.712676, -0.386666, 0.585305, -2.84094, 3.26565, 2.65194)
+fov = 47.1238
+
+[node name="Objects_scene_front" parent="." instance=ExtResource("1_0f8in")]
+transform = Transform3D(0.999999, -0.000913886, 0.000806933, 0.00091225, 0.999997, 0.002037, -0.000808782, -0.00203626, 0.999998, -0.857795, 0, 0.0917585)
+
+[node name="Objects_scene_back" parent="." instance=ExtResource("1_0f8in")]
+transform = Transform3D(-0.645147, 0, 0.473059, 0, 0.8, 0, -0.473059, 0, -0.645147, 0.995133, -1.19209e-07, -2.96231)
+
+[node name="Objects_scene_middle" parent="." instance=ExtResource("1_0f8in")]
+transform = Transform3D(0.868381, 0, -0.495898, 0, 1, 0, 0.495898, 0, 0.868381, 1.88999, 0, -2.3208)

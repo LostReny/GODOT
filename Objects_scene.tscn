@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://heca0f5m1v3u"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qkaod"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uqtj0"]
+
+[node name="Objects_scene" type="Node3D"]
+
+[node name="Cilinder" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.231493, 0.971026, -0.0593225, -3.07037e-09, -0.0609789, -0.998139, -0.972836, 0.231062, -0.0141162, 0.702782, 0, -0.989765)
+mesh = SubResource("CylinderMesh_qkaod")
+
+[node name="box" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.663391, 0.746881, -0.0456289, -1.86265e-09, -0.0609789, -0.998141, -0.748273, 0.662156, -0.0404529, 1.57368, 2.23517e-08, 0.499624)
+mesh = SubResource("BoxMesh_uqtj0")
+skeleton = NodePath("../Cilinder")
