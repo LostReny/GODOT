@@ -19,12 +19,19 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if "Goal" in body.get_groups():
-		print("Win!")
+		complete_level(body.langing_path)
 	elif "Ground" in body.get_groups():
 		crash_sequence()
 	pass
 	
-	
+# when the player collides with the ground
 func crash_sequence() -> void:
 	print("kabbom!")
+	get_tree().reload_current_scene()
+	pass
+	
+# function when the player collides with the landing pad
+func complete_level(next_level_file: String) -> void:
+	print("Level Complete!")
+	get_tree().change_scene_to_file(next_level_file)
 	pass
