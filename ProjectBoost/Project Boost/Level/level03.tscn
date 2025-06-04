@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://nsrbww8tpjbm"]
+[gd_scene load_steps=11 format=3 uid="uid://blp0ap72wuuq"]
 
-[ext_resource type="Script" path="res://Level/Landing Pad.gd" id="1_11pud"]
-[ext_resource type="PackedScene" uid="uid://u0h1d47wjisc" path="res://player.tscn" id="2_t850v"]
+[ext_resource type="Script" path="res://Level/Landing Pad.gd" id="1_nikwi"]
+[ext_resource type="PackedScene" uid="uid://u0h1d47wjisc" path="res://player.tscn" id="2_iomjf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jlryj"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -21,6 +21,9 @@ albedo_color = Color(0.701961, 0.258824, 0.0901961, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mx3vd"]
 albedo_color = Color(0.780392, 0.188235, 0.494118, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_add2f"]
+albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyacq"]
 albedo_color = Color(0, 0.584314, 1, 1)
@@ -44,10 +47,16 @@ size = Vector3(30, 8, 5)
 material = SubResource("StandardMaterial3D_pp5kr")
 
 [node name="Obstacle" type="CSGBox3D" parent="." groups=["Ground"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, 0)
 use_collision = true
 size = Vector3(3, 2, 3)
 material = SubResource("StandardMaterial3D_mx3vd")
+
+[node name="Obstacle2" type="CSGBox3D" parent="." groups=["Ground"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.995, 9, 0)
+use_collision = true
+size = Vector3(3, 5, 3)
+material = SubResource("StandardMaterial3D_add2f")
 
 [node name="Launch pad" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.243, 0)
@@ -60,13 +69,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.2, 0)
 use_collision = true
 size = Vector3(2, 0.5, 2)
 material = SubResource("StandardMaterial3D_a7lqr")
-script = ExtResource("1_11pud")
-langing_path = "res://Level/level03.tscn"
+script = ExtResource("1_nikwi")
+langing_path = "res://Level/level01.tscn"
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 8, 11)
 
-[node name="Player" parent="." instance=ExtResource("2_t850v")]
+[node name="Player" parent="." instance=ExtResource("2_iomjf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1.5, 0)
 force = 750.0
 torque_force = 250.0
