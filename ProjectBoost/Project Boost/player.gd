@@ -6,6 +6,8 @@ extends RigidBody3D
 ## How much rotational force apply on Z axis
 @export var torque_force : float = 100.0
 
+var is_transitioning: bool = false
+
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("boost"):
 		apply_central_force(basis.y * delta * force)
@@ -18,20 +20,29 @@ func _process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if "Goal" in body.get_groups():
-		complete_level(body.langing_path)
-	elif "Ground" in body.get_groups():
-		crash_sequence()
+	if is_transitioning == false:
+		if "Goal" in body.get_groups():
+			complete_level(body.langing_path)
+		elif "Ground" in body.get_groups():
+			crash_sequence()
 	pass
 	
 # when the player collides with the ground
 func crash_sequence() -> void:
 	print("kabbom!")
-	get_tree().reload_current_scene()
+	set_process(false)
+	is_transitioning = true
+	var tween = create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_callback(get_tree().reload_current_scene)
 	pass
 	
 # function when the player collides with the landing pad
 func complete_level(next_level_file: String) -> void:
 	print("Level Complete!")
-	get_tree().change_scene_to_file(next_level_file)
+	set_process(false)
+	is_transitioning = true
+	var tween = create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_callback(get_tree().change_scene_to_file.bind(next_level_file))
 	pass
