@@ -6,6 +6,10 @@ extends RigidBody3D
 ## How much rotational force apply on Z axis
 @export var torque_force : float = 100.0
 
+#variable that will be called when _ready function start
+@onready var explosion_audio: AudioStreamPlayer = $ExplosionAudio
+@onready var sucess_audio: AudioStreamPlayer = $SucessAudio
+
 var is_transitioning: bool = false
 
 func _process(delta: float) -> void:
@@ -30,19 +34,21 @@ func _on_body_entered(body: Node) -> void:
 # when the player collides with the ground
 func crash_sequence() -> void:
 	print("kabbom!")
+	explosion_audio.play()
 	set_process(false)
 	is_transitioning = true
 	var tween = create_tween()
-	tween.tween_interval(1.0)
+	tween.tween_interval(2.5)
 	tween.tween_callback(get_tree().reload_current_scene)
 	pass
 	
 # function when the player collides with the landing pad
 func complete_level(next_level_file: String) -> void:
 	print("Level Complete!")
+	sucess_audio.play()
 	set_process(false)
 	is_transitioning = true
 	var tween = create_tween()
-	tween.tween_interval(1.0)
+	tween.tween_interval(2.0)
 	tween.tween_callback(get_tree().change_scene_to_file.bind(next_level_file))
 	pass
