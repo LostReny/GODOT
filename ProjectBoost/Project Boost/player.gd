@@ -9,13 +9,18 @@ extends RigidBody3D
 #variable that will be called when _ready function start
 @onready var explosion_audio: AudioStreamPlayer = $ExplosionAudio
 @onready var sucess_audio: AudioStreamPlayer = $SucessAudio
+@onready var rocket_audio: AudioStreamPlayer3D = $RocketAudio
 
 var is_transitioning: bool = false
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("boost"):
 		apply_central_force(basis.y * delta * force)
-	
+		if rocket_audio.playing == false:
+			rocket_audio.play()
+	else:
+		rocket_audio.stop()
+		
 	if Input.is_action_pressed("rotate_left"):
 		apply_torque(Vector3(0.0,0.0, torque_force * delta))
 	elif Input.is_action_pressed("rotate_right"):
@@ -34,6 +39,7 @@ func _on_body_entered(body: Node) -> void:
 # when the player collides with the ground
 func crash_sequence() -> void:
 	print("kabbom!")
+	rocket_audio.stop()
 	explosion_audio.play()
 	set_process(false)
 	is_transitioning = true
@@ -45,6 +51,7 @@ func crash_sequence() -> void:
 # function when the player collides with the landing pad
 func complete_level(next_level_file: String) -> void:
 	print("Level Complete!")
+	rocket_audio.stop()
 	sucess_audio.play()
 	set_process(false)
 	is_transitioning = true
