@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://u0h1d47wjisc"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_s0w2l"]
-[ext_resource type="Material" uid="uid://bgl8ixyy4pv26" path="res://MAT_ship_red.tres" id="2_6lus7"]
+[ext_resource type="Material" uid="uid://bgl8ixyy4pv26" path="res://Material/MAT_ship_red.tres" id="2_6lus7"]
 [ext_resource type="AudioStream" uid="uid://vc6t2tyu65b6" path="res://Audio/SFX - Death Explosion.ogg" id="2_183ep"]
 [ext_resource type="AudioStream" uid="uid://b1fbnluahg163" path="res://Audio/SFX - Success.ogg" id="3_nplo5"]
 [ext_resource type="AudioStream" uid="uid://dbxb5mtktl0g4" path="res://Audio/SFX - Main engine thrust.ogg" id="4_rfyx4"]
