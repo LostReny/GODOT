@@ -19,7 +19,7 @@ extends RigidBody3D
 @onready var success_particles: GPUParticles3D = $SuccessParticles
 
 # mesh
-#@onready var mesh_instance_3d = $MeshInstance3D
+@onready var rocket: MeshInstance3D = $Rocket
 
 var is_transitioning: bool = false
 
@@ -57,7 +57,7 @@ func _on_body_entered(body: Node) -> void:
 func crash_sequence() -> void:
 	print("kabbom!")
 	explosion_particles.emitting = true
-	#mesh_instance_3d.visible = false
+	rocket.visible = false
 	booster_particles.emitting = false
 	right_booster_particles.emitting = false
 	left_booster_particles.emitting = false
