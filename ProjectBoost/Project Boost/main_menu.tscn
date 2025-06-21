@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://cuhamtkvt85tm"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_alxw0"]
+[ext_resource type="Texture2D" uid="uid://canfkkg4uchno" path="res://Img/bg_game.png" id="1_hcduk"]
+[ext_resource type="FontFile" uid="uid://cffiv4igrxxc" path="res://Img/Sansation-Bold.ttf" id="2_2q3qu"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ciwm"]
+texture = ExtResource("1_hcduk")
+modulate_color = Color(0.737255, 0.737255, 0.737255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynuo2"]
+bg_color = Color(0.380392, 0.254902, 0.290196, 0.533333)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_alxw0")
+start_path = "res://Level/level01.tscn"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5ciwm")
+
+[node name="MenuBar" type="MenuBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.0
+offset_top = -321.0
+offset_right = 323.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.5
+offset_top = -41.5
+offset_right = 160.5
+offset_bottom = 227.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="StartButton" type="Button" parent="MenuBar/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.854902, 0.854902, 0.854902, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ynuo2")
+text = "Start"
+
+[node name="HtpButton" type="Button" parent="MenuBar/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.854902, 0.854902, 0.854902, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ynuo2")
+text = "How to play"
+
+[node name="ExitButton" type="Button" parent="MenuBar/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.854902, 0.854902, 0.854902, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ynuo2")
+text = "Exit"
+
+[node name="Label" type="Label" parent="MenuBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -247.5
+offset_top = -195.5
+offset_right = 247.5
+offset_bottom = -88.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_2q3qu")
+theme_override_font_sizes/font_size = 70
+text = "LOST ROCK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="MenuBar/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/HtpButton" to="." method="_on_htp_button_pressed"]
+[connection signal="pressed" from="MenuBar/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
