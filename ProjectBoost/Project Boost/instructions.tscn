@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr31wlkkt7dk7"]
+
+[ext_resource type="Texture2D" uid="uid://canfkkg4uchno" path="res://Img/bg_game.png" id="1_0ap6r"]
+[ext_resource type="FontFile" uid="uid://cffiv4igrxxc" path="res://Img/Sansation-Bold.ttf" id="2_tedyk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gurba"]
+texture = ExtResource("1_0ap6r")
+modulate_color = Color(0.47451, 0.47451, 0.47451, 1)
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gurba")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 106.0
+offset_top = 61.0
+offset_right = 321.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("2_tedyk")
+theme_override_font_sizes/font_size = 25
+text = "COMO JOGAR :"
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -471.5
+offset_top = -188.0
+offset_right = 471.5
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 18
+text = "COMANDOS
+	W: Ativa os motores e acelera o foguete.
+	A / D: Gira o foguete para a esquerda ou direita.
+
+MISSÃO
+	Pilote o foguete até o outro lado do cenário e pouse com precisão na plataforma verde!
+
+
+SOBRE O PROJETO
+Lost Rock é um jogo de nave 3D desenvolvido como parte de um portfólio pessoal.
+Criado durante os estudos com o curso \"Complete Godot 3D: Develop Your Own 3D Games Using Godot 4\" (Udemy), este projeto tem como objetivo explorar e praticar conceitos de desenvolvimento de jogos com o motor Godot 4."
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -160.5
+offset_top = -127.0
+offset_right = 160.5
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 31
+text = "Menu"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuhamtkvt85tm"]
+[gd_scene load_steps=8 format=3 uid="uid://cuhamtkvt85tm"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_alxw0"]
 [ext_resource type="Texture2D" uid="uid://canfkkg4uchno" path="res://Img/bg_game.png" id="1_hcduk"]
@@ -9,11 +9,20 @@ texture = ExtResource("1_hcduk")
 modulate_color = Color(0.737255, 0.737255, 0.737255, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynuo2"]
-bg_color = Color(0.380392, 0.254902, 0.290196, 0.533333)
+bg_color = Color(0.380392, 0.254902, 0.290196, 0.666667)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o63f7"]
+bg_color = Color(0.321569, 0.211765, 0.247059, 0.784314)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q7oc4"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -24,6 +33,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_alxw0")
 start_path = "res://Level/level01.tscn"
+intructions_path = "res://instructions.tscn"
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -68,25 +78,40 @@ alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.854902, 0.854902, 0.854902, 1)
+theme_override_colors/font_pressed_color = Color(0.556863, 0.556863, 0.556863, 1)
+theme_override_colors/font_hover_color = Color(0.909804, 0.909804, 0.909804, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_ynuo2")
-text = "Start"
+theme_override_styles/hover = SubResource("StyleBoxFlat_o63f7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ynuo2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q7oc4")
+text = "Jogar"
 
 [node name="HtpButton" type="Button" parent="MenuBar/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.854902, 0.854902, 0.854902, 1)
+theme_override_colors/font_pressed_color = Color(0.556863, 0.556863, 0.556863, 1)
+theme_override_colors/font_hover_color = Color(0.909804, 0.909804, 0.909804, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_ynuo2")
-text = "How to play"
+theme_override_styles/hover = SubResource("StyleBoxFlat_o63f7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ynuo2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q7oc4")
+text = "Como jogar"
 
 [node name="ExitButton" type="Button" parent="MenuBar/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.854902, 0.854902, 0.854902, 1)
+theme_override_colors/font_pressed_color = Color(0.556863, 0.556863, 0.556863, 1)
+theme_override_colors/font_hover_color = Color(0.909804, 0.909804, 0.909804, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_ynuo2")
-text = "Exit"
+theme_override_styles/hover = SubResource("StyleBoxFlat_o63f7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ynuo2")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_q7oc4")
+text = "Sair"
 
 [node name="Label" type="Label" parent="MenuBar"]
 layout_mode = 1
