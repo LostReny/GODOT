@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://di5tisvfafxhb"]
+[gd_scene load_steps=9 format=3 uid="uid://di5tisvfafxhb"]
 
 [ext_resource type="Script" path="res://Level/Landing Pad.gd" id="1_fjbtu"]
 [ext_resource type="PackedScene" uid="uid://u0h1d47wjisc" path="res://player.tscn" id="2_hganv"]
 [ext_resource type="PackedScene" uid="uid://ch0pc3wyi2wnx" path="res://moving_hazard.tscn" id="3_mcd3b"]
 [ext_resource type="PackedScene" uid="uid://t24kvyov7l2g" path="res://Background.tscn" id="4_jo60j"]
+[ext_resource type="PackedScene" uid="uid://bey3tlrj2thvd" path="res://UI/pause_menu.tscn" id="5_15vau"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pp5kr"]
 albedo_color = Color(0.701961, 0.258824, 0.0901961, 1)
@@ -52,3 +53,5 @@ destination = Vector3(0, 6, 0)
 duration = 4.0
 
 [node name="Floor2" parent="." instance=ExtResource("4_jo60j")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_15vau")]

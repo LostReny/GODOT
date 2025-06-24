@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://i5nq4swc32o4"]
+[gd_scene load_steps=7 format=3 uid="uid://i5nq4swc32o4"]
 
 [ext_resource type="PackedScene" uid="uid://u0h1d47wjisc" path="res://player.tscn" id="1_aisge"]
 [ext_resource type="Script" path="res://Level/Landing Pad.gd" id="1_shq20"]
 [ext_resource type="PackedScene" uid="uid://t24kvyov7l2g" path="res://Background.tscn" id="1_wh8ov"]
+[ext_resource type="PackedScene" uid="uid://bey3tlrj2thvd" path="res://UI/pause_menu.tscn" id="4_np0yk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyacq"]
 albedo_color = Color(0, 0.584314, 1, 1)
@@ -36,3 +37,5 @@ fov = 72.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1.5, 0)
 force = 750.0
 torque_force = 250.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_np0yk")]

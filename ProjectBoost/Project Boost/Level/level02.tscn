@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://nsrbww8tpjbm"]
+[gd_scene load_steps=8 format=3 uid="uid://nsrbww8tpjbm"]
 
 [ext_resource type="Script" path="res://Level/Landing Pad.gd" id="1_11pud"]
 [ext_resource type="PackedScene" uid="uid://u0h1d47wjisc" path="res://player.tscn" id="2_t850v"]
 [ext_resource type="PackedScene" uid="uid://t24kvyov7l2g" path="res://Background.tscn" id="3_ahr3m"]
+[ext_resource type="PackedScene" uid="uid://bey3tlrj2thvd" path="res://UI/pause_menu.tscn" id="4_gx4bl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mx3vd"]
 albedo_color = Color(0.780392, 0.188235, 0.494118, 1)
@@ -45,3 +46,5 @@ force = 750.0
 torque_force = 250.0
 
 [node name="Floor2" parent="." instance=ExtResource("3_ahr3m")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("4_gx4bl")]
