@@ -22,8 +22,13 @@ extends RigidBody3D
 @onready var rocket: MeshInstance3D = $Rocket
 
 var is_transitioning: bool = false
+var is_paused: bool = false
 
 func _process(delta: float) -> void:
+	
+	if is_paused:
+		return
+	
 	if Input.is_action_pressed("boost"):
 		apply_central_force(basis.y * delta * force)
 		booster_particles.emitting = true
