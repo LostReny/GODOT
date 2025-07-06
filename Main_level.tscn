@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://k6mis7y41oxm"]
 
 [ext_resource type="PackedScene" uid="uid://heca0f5m1v3u" path="res://Objects_scene.tscn" id="1_0f8in"]
-[ext_resource type="Script" path="res://Player.gd" id="2_8aebw"]
+[ext_resource type="Script" path="res://VariablesXO.gd" id="2_3o3xk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ipwn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -47,4 +47,4 @@ transform = Transform3D(0.868381, 0, -0.495898, 0, 1, 0, 0.495898, 0, 0.868381, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37652, 0, -5.75148)
 mesh = SubResource("CapsuleMesh_glgst")
 surface_material_override/0 = SubResource("StandardMaterial3D_6cgmq")
-script = ExtResource("2_8aebw")
+script = ExtResource("2_3o3xk")
