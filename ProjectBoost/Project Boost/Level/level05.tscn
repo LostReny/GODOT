@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://dl6n1i4uro3rr"]
+
+[ext_resource type="Script" path="res://Level/Landing Pad.gd" id="1_dm741"]
+[ext_resource type="PackedScene" uid="uid://u0h1d47wjisc" path="res://player.tscn" id="2_na88w"]
+[ext_resource type="PackedScene" uid="uid://t24kvyov7l2g" path="res://Background.tscn" id="4_scqaa"]
+[ext_resource type="PackedScene" uid="uid://bey3tlrj2thvd" path="res://UI/pause_menu.tscn" id="5_xpg46"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pp5kr"]
+albedo_color = Color(0.701961, 0.258824, 0.0901961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fyacq"]
+albedo_color = Color(0, 0.584314, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a7lqr"]
+albedo_color = Color(0.0156863, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8hftk"]
+albedo_color = Color(0.94902, 0.690196, 0.407843, 1)
+
+[node name="Level" type="Node3D"]
+
+[node name="Floor" type="CSGBox3D" parent="." groups=["Ground"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
+visible = false
+use_collision = true
+size = Vector3(30, 8, 5)
+material = SubResource("StandardMaterial3D_pp5kr")
+
+[node name="Launch pad" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0.243, 0)
+use_collision = true
+size = Vector3(2, 0.5, 2)
+material = SubResource("StandardMaterial3D_fyacq")
+
+[node name="Landing Pad" type="CSGBox3D" parent="." groups=["Goal"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0.2, 0)
+use_collision = true
+size = Vector3(2, 0.5, 2)
+material = SubResource("StandardMaterial3D_a7lqr")
+script = ExtResource("1_dm741")
+langing_path = "res://Level/level06.tscn"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 8, 11)
+fov = 72.0
+
+[node name="Player" parent="." instance=ExtResource("2_na88w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 1.5, 0)
+force = 750.0
+torque_force = 250.0
+
+[node name="Floor2" parent="." instance=ExtResource("4_scqaa")]
+
+[node name="btw_obstacle" type="CSGBox3D" parent="." groups=["Ground"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268463, 1.56271, 0.40625)
+use_collision = true
+size = Vector3(18.4453, 2.63159, 2.34766)
+material = SubResource("StandardMaterial3D_8hftk")
+
+[node name="top_obstacle" type="CSGBox3D" parent="." groups=["Ground"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.268463, 8.50814, 0.40625)
+use_collision = true
+size = Vector3(18.4453, 3.12488, 2.34766)
+material = SubResource("StandardMaterial3D_8hftk")
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_xpg46")]
