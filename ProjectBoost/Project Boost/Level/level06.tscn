@@ -51,6 +51,5 @@ torque_force = 250.0
 
 [node name="Force_Field" parent="." instance=ExtResource("4_p0lls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.19282, 0)
-use_collision = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_7eq2j")]

@@ -1,22 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://cebo70h307oe0"]
 
-[ext_resource type="Script" path="res://force_field.gd" id="1_7j8qk"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ne4ka"]
-albedo_color = Color(0.231373, 0.152941, 0.72549, 1)
+[ext_resource type="Script" path="res://area_force_field.gd" id="2_xksl7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wvc1g"]
-radius = 3.4829
+radius = 3.73648
 
-[node name="Force_Field" type="CSGSphere3D"]
-use_collision = true
-radius = 3.49843
-material = SubResource("StandardMaterial3D_ne4ka")
-script = ExtResource("1_7j8qk")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xl7wd"]
+
+[node name="Force_Field" type="Node3D" groups=["Ground"]]
 
 [node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("2_xksl7")
+gravity_force = Vector3(15, -10, 5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_wvc1g")
 
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." groups=["Ground"]]
+use_collision = true
+radius = 1.55335
+material = SubResource("StandardMaterial3D_xl7wd")
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
