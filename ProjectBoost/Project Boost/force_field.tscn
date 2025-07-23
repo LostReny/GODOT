@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cebo70h307oe0"]
+[gd_scene load_steps=9 format=3 uid="uid://cebo70h307oe0"]
 
 [ext_resource type="Script" path="res://area_force_field.gd" id="2_xksl7"]
 
@@ -6,6 +6,24 @@
 radius = 3.73648
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xl7wd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnecc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcfmc"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_1v3cj"]
+
+[sub_resource type="Curve" id="Curve_3hq6e"]
+min_value = -437.14
+max_value = 197.55
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_mly7n"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Force_Field" type="Node3D" groups=["Ground"]]
 
@@ -20,6 +38,28 @@ shape = SubResource("SphereShape3D_wvc1g")
 use_collision = true
 radius = 1.55335
 material = SubResource("StandardMaterial3D_xl7wd")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(2.37551, 0, 0, 0, 1, 0, 0, 0, 1, -0.150694, 0, 0)
+material_override = SubResource("StandardMaterial3D_nnecc")
+material_overlay = SubResource("StandardMaterial3D_tcfmc")
+transparency = 0.51
+amount = 20
+lifetime = 3.0
+mesh = SubResource("SphereMesh_1v3cj")
+emission_shape = 1
+emission_sphere_radius = 2.5
+direction = Vector3(2, 0, 0)
+linear_accel_min = -78.33
+linear_accel_max = -26.26
+linear_accel_curve = SubResource("Curve_3hq6e")
+radial_accel_min = -39.39
+radial_accel_max = -39.39
+radial_accel_curve = SubResource("Curve_mly7n")
+angle_min = -305.5
+angle_max = 436.4
+scale_amount_min = 0.2
+scale_amount_max = 0.2
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

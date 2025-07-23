@@ -50,6 +50,6 @@ torque_force = 250.0
 [node name="Floor2" parent="." instance=ExtResource("3_v2fyj")]
 
 [node name="Force_Field" parent="." instance=ExtResource("4_p0lls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.19282, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1526, 0)
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_7eq2j")]
