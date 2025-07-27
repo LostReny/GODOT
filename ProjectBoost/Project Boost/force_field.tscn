@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cebo70h307oe0"]
+[gd_scene load_steps=12 format=3 uid="uid://cebo70h307oe0"]
 
 [ext_resource type="Script" path="res://area_force_field.gd" id="2_xksl7"]
 
@@ -6,12 +6,13 @@
 radius = 3.73648
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xl7wd"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnecc"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcfmc"]
+albedo_color = Color(0.619608, 0.32549, 0.843137, 0.631373)
+emission_enabled = true
+emission = Color(0.278431, 0.0941176, 0.611765, 1)
+emission_energy_multiplier = 1.34
 
 [sub_resource type="SphereMesh" id="SphereMesh_1v3cj"]
+height = 0.8
 
 [sub_resource type="Curve" id="Curve_3hq6e"]
 min_value = -437.14
@@ -24,6 +25,30 @@ min_value = -200.0
 max_value = 200.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_4ai4t"]
+offsets = PackedFloat32Array(0, 0.22, 0.853333, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.863436, 5.31845e-06, 7.70092e-07, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_j1lbb"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="Curve" id="Curve_2flym"]
+min_value = -437.14
+max_value = 197.55
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_tdafs"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_8yxii"]
+offsets = PackedFloat32Array(0, 0.473333, 0.853333, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.863436, 5.31845e-06, 7.70092e-07, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Force_Field" type="Node3D" groups=["Ground"]]
 
@@ -41,25 +66,59 @@ material = SubResource("StandardMaterial3D_xl7wd")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
 transform = Transform3D(2.37551, 0, 0, 0, 1, 0, 0, 0, 1, -0.150694, 0, 0)
-material_override = SubResource("StandardMaterial3D_nnecc")
-material_overlay = SubResource("StandardMaterial3D_tcfmc")
 transparency = 0.51
-amount = 20
+amount = 30
 lifetime = 3.0
 mesh = SubResource("SphereMesh_1v3cj")
-emission_shape = 1
-emission_sphere_radius = 2.5
-direction = Vector3(2, 0, 0)
-linear_accel_min = -78.33
-linear_accel_max = -26.26
+emission_shape = 2
+emission_sphere_radius = 2.0
+direction = Vector3(0, 50, 0)
+spread = 20.0
+gravity = Vector3(0, -20, 0)
+linear_accel_min = -90.0
+linear_accel_max = -20.0
 linear_accel_curve = SubResource("Curve_3hq6e")
-radial_accel_min = -39.39
-radial_accel_max = -39.39
+radial_accel_min = -40.0
+radial_accel_max = -40.0
 radial_accel_curve = SubResource("Curve_mly7n")
+damping_min = 0.045
+damping_max = 0.045
 angle_min = -305.5
 angle_max = 436.4
 scale_amount_min = 0.2
 scale_amount_max = 0.2
+color = Color(0.8, 0.301961, 0.458824, 1)
+color_ramp = SubResource("Gradient_4ai4t")
+
+[node name="CPUParticles3D2" type="CPUParticles3D" parent="."]
+transform = Transform3D(2.37551, 0, 0, 0, 1, 0, 0, 0, 1, -0.258448, 0.00180268, 0)
+transparency = 0.51
+amount = 20
+lifetime = 2.0
+speed_scale = 1.2
+explosiveness = 0.1
+mesh = SubResource("SphereMesh_j1lbb")
+emission_shape = 2
+emission_sphere_radius = 2.0
+direction = Vector3(0, 0, 20)
+spread = 20.0
+gravity = Vector3(0, -20, 0)
+angular_velocity_min = -720.0
+angular_velocity_max = 720.0
+linear_accel_min = -90.0
+linear_accel_max = -60.0
+linear_accel_curve = SubResource("Curve_2flym")
+radial_accel_min = -60.0
+radial_accel_max = -60.0
+radial_accel_curve = SubResource("Curve_tdafs")
+damping_min = 0.045
+damping_max = 0.045
+angle_min = -305.5
+angle_max = 436.4
+scale_amount_min = 0.2
+scale_amount_max = 0.2
+color = Color(0.8, 0.301961, 0.458824, 0.545098)
+color_ramp = SubResource("Gradient_8yxii")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
