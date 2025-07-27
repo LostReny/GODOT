@@ -10,3 +10,5 @@ position = Vector2(117, 521)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(578, 320)
 zoom = Vector2(0.8, 0.8)
+
+[node name="Gold" type="Node2D" parent="."]
