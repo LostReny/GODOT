@@ -11,7 +11,7 @@ texture = ExtResource("1_jrjyj")
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("2_7m4em")
-upgrade_value = [10, 15]
+upgrade_value = Array[int]([10, 15])
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(64, -61.6, 64, 61, 61.6, 64, -61, 64, -64, 61.6, -64, -61.6, -61, -64, 61, -64)
