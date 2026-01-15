@@ -428,6 +428,9 @@ sources/0 = SubResource("TileSetAtlasSource_e2o6t")
 
 [node name="Game" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 322)
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_feb5d")
 format = 2
@@ -439,11 +442,11 @@ tile_set = SubResource("TileSet_feb5d")
 
 [node name="Ground" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAAMAAkAAAAQAAQAAAAMAAoAAAAQAAQAAAANAAoAAAAQAAQAAAANAAkAAAAQAAQAAAAOAAkAAAAQAAQAAAAOAAoAAAAQAAQAAAA=")
 tile_set = SubResource("TileSet_feb5d")
 
 [node name="Props" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
+tile_map_data = PackedByteArray("AAAiABMAAAALABEAAAAiABQAAAALABIAAAAiABUAAAALABMAAAAiABYAAAALABQAAAAjABMAAAAMABEAAAAjABQAAAAMABIAAAAjABUAAAAMABMAAAAjABYAAAAMABQAAAA=")
 tile_set = SubResource("TileSet_feb5d")
 
 [node name="Water" type="TileMapLayer" parent="TileMap"]

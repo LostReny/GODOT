@@ -14,3 +14,4 @@ config/name="start_game_dev"
 run/main_scene="uid://drly8j4wfxhmt"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+boot_splash/size/viewport_height=600
