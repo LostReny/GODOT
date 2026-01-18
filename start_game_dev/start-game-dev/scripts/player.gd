@@ -2,24 +2,27 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 
+var input_direction : get = _get_input_direction
+var sprite_direction
+var is_moving = false
+
+@onready var sprite = $AnimatedSprite2D
 
 func _physics_process(delta):
-	
-	velocity.x = 0
-	velocity.y = 0
-	
-	var dir = Input.get_axis("ui_up", "ui_down")
-	if dir:
-		velocity.y = dir * SPEED
-	else: 
-		velocity.y = move_toward(0,velocity.y, SPEED)
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	velocity = input_direction * SPEED
+	is_moving == true
 	move_and_slide()
+
+
+func _get_input_direction():
+	var x = -int(Input.is_action_pressed("LEFT")) + int(Input.is_action_pressed("RIGHT"))
+	var y = -int(Input.is_action_pressed("UP")) + int(Input.is_action_pressed("DOWN"))
+	input_direction = Vector2(x,y).normalized()
+	return input_direction
+
+#fazer sprite de correr quando se mover 
+#fazer sprite mudar de lado, quando for pra esquerda
+func _get_sprite():
+	if  is_moving == true:
+		sprite = "run"
+		pass

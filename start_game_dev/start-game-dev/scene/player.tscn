@@ -137,8 +137,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4qnqm"]
-radius = 5.0
-height = 14.0
+radius = 4.0
+height = 12.0
 
 [node name="Player_" type="Node2D"]
 
@@ -149,8 +149,11 @@ script = ExtResource("1_fvtld")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_4qnqm")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
+frame = 2
+frame_progress = 0.7390963
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_4qnqm")
