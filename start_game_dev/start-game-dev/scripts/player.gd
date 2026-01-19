@@ -35,6 +35,8 @@ func _get_sprite():
 
 #fazer sprite mudar de lado, quando for pra esquerda
 func _flip_sprite():
-	
-	
+	if input_direction.x < 0:
+		sprite.flip_h = true
+	elif input_direction.x > 0:
+		sprite.flip_h = false
 	pass
