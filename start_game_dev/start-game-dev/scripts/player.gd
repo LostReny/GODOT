@@ -12,6 +12,7 @@ func _physics_process(delta):
 	velocity = input_direction * SPEED
 	move_and_slide()
 	_get_sprite()
+	_flip_sprite()
 
 
 func _get_input_direction():
@@ -34,4 +35,6 @@ func _get_sprite():
 
 #fazer sprite mudar de lado, quando for pra esquerda
 func _flip_sprite():
+	
+	
 	pass
