@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 100.0
+const SPEED = 80.0
 
 var input_direction : Vector2 = Vector2.ZERO
 var is_moving : bool = false
@@ -8,13 +8,16 @@ var is_rolling : bool = false
 
 @onready var sprite = $AnimatedSprite2D
 
+func _ready():
+	sprite.animation_finished.connect(_on_animation_finished)
+
+
 func _physics_process(delta):
 	_get_input_direction()
 	velocity = input_direction * SPEED
 	move_and_slide()
-	_get_sprite()
+	_update_animation()
 	_flip_sprite()
-	rool()
 
 
 func _get_input_direction():
@@ -26,19 +29,21 @@ func _get_input_direction():
 	
 	if Input.is_action_pressed("ROLL"):
 		is_rolling = true
-	else: 
+	else:
 		is_rolling = false
-	#return input_direction
 
 
-func _get_sprite():
-	if is_moving:
+func _update_animation():
+	# prioridade: ROLL > RUN > IDLE
+	if is_rolling and is_moving:
+		if sprite.animation != "roll":
+			sprite.play("roll")
+	elif is_moving:
 		if sprite.animation != "run":
 			sprite.play("run")
 	else:
 		if sprite.animation != "idle":
 			sprite.play("idle")
-	pass
 
 #fazer sprite mudar de lado, quando for pra esquerda
 func _flip_sprite():
@@ -47,11 +52,7 @@ func _flip_sprite():
 	elif input_direction.x > 0:
 		sprite.flip_h = false
 	pass
-
-func rool():
-	if is_rolling:
-		if sprite.animation != "roll":
-			sprite.play("roll")
-	else:
-		_get_sprite()
-	pass
+	
+func _on_animation_finished():
+	if sprite.animation == "roll":
+		is_rolling = true
