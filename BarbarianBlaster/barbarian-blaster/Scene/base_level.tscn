@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dro1vaktuf2t"]
+
+[sub_resource type="Environment" id="Environment_27g76"]
+background_energy_multiplier = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27g76"]
+
+[node name="Base" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_27g76")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+light_color = Color(0.9110635, 0.5430613, 0.54102933, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(100, 2, 100)
+material = SubResource("StandardMaterial3D_27g76")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.23444644, 0.9721291, 0, -0.9721291, 0.23444644, 0, 18.147251, 11.425888)
+fov = 120.93749
