@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dddwhfoxjsmyy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_maxoy"]
+albedo_color = Color(0.62152386, 0.62152386, 0.6215238, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_iy640"]
+material = SubResource("StandardMaterial3D_maxoy")
+size = Vector3(4, 0.1, 4)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_htqsb"]
+data = PackedVector3Array(-2, 0.049999997, 2, 2, 0.049999997, 2, -2, -0.049999997, 2, 2, 0.049999997, 2, 2, -0.049999997, 2, -2, -0.049999997, 2, 2, 0.049999997, -2, -2, 0.049999997, -2, 2, -0.049999997, -2, -2, 0.049999997, -2, -2, -0.049999997, -2, 2, -0.049999997, -2, 2, 0.049999997, 2, 2, 0.049999997, -2, 2, -0.049999997, 2, 2, 0.049999997, -2, 2, -0.049999997, -2, 2, -0.049999997, 2, -2, 0.049999997, -2, -2, 0.049999997, 2, -2, -0.049999997, -2, -2, 0.049999997, 2, -2, -0.049999997, 2, -2, -0.049999997, -2, 2, 0.049999997, 2, -2, 0.049999997, 2, 2, 0.049999997, -2, -2, 0.049999997, 2, -2, 0.049999997, -2, 2, 0.049999997, -2, -2, -0.049999997, 2, 2, -0.049999997, 2, -2, -0.049999997, -2, 2, -0.049999997, 2, 2, -0.049999997, -2, -2, -0.049999997, -2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iy640"]
+albedo_color = Color(0.68003976, 0.16829398, 0.1815427, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mi4u5"]
+material = SubResource("StandardMaterial3D_iy640")
+size = Vector3(4, 0.1, 4)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_sbm4l"]
+data = PackedVector3Array(-2, 0.049999997, 2, 2, 0.049999997, 2, -2, -0.049999997, 2, 2, 0.049999997, 2, 2, -0.049999997, 2, -2, -0.049999997, 2, 2, 0.049999997, -2, -2, 0.049999997, -2, 2, -0.049999997, -2, -2, 0.049999997, -2, -2, -0.049999997, -2, 2, -0.049999997, -2, 2, 0.049999997, 2, 2, 0.049999997, -2, 2, -0.049999997, 2, 2, 0.049999997, -2, 2, -0.049999997, -2, 2, -0.049999997, 2, -2, 0.049999997, -2, -2, 0.049999997, 2, -2, -0.049999997, -2, -2, 0.049999997, 2, -2, -0.049999997, 2, -2, -0.049999997, -2, 2, 0.049999997, 2, -2, 0.049999997, 2, 2, 0.049999997, -2, -2, 0.049999997, 2, -2, 0.049999997, -2, 2, 0.049999997, -2, -2, -0.049999997, 2, 2, -0.049999997, 2, -2, -0.049999997, -2, 2, -0.049999997, 2, 2, -0.049999997, -2, -2, -0.049999997, -2)
+
+[node name="SpaceLibrary" type="Node3D"]
+
+[node name="Free Space" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_iy640")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Free Space"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Free Space/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_htqsb")
+
+[node name="TurretSpace" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_mi4u5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TurretSpace"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TurretSpace/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_sbm4l")
