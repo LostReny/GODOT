@@ -16,6 +16,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_27g76"]
+albedo_color = Color(0.05225741, 0.34227058, 0.77481174, 1)
 
 [node name="Base_Level" type="Node3D"]
 
@@ -27,6 +28,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_27g76")
 
@@ -35,3 +37,8 @@ transform = Transform3D(1, 0, 0, 0, 0.42261824, 0.9063078, 0, -0.9063078, 0.4226
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("1_403c6")
+cell_size = Vector3(4, 4, 4)
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65535, 65534, 0, 65535, 2, 0, 65531, 65535, 0, 65531, 65534, 0, 65532, 65534, 0, 65533, 65534, 0, 0, 65534, 0, 1, 65534, 0, 2, 65534, 0, 3, 65534, 0, 2, 2, 0, 1, 2, 0, 0, 2, 0, 65534, 2, 0, 65533, 2, 0, 65531, 2, 0, 65531, 1, 0, 65531, 0, 0, 65534, 65534, 0, 4, 65534, 0, 4, 65535, 0, 4, 0, 0, 4, 2, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 65535, 0, 0, 0, 0, 0, 65532, 65535, 0, 65533, 65535, 0, 2, 65535, 0, 3, 65535, 0, 3, 2, 0)
+}
