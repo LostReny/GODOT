@@ -240,3 +240,15 @@ autoplay = &"move"
 
 [node name="Coin" parent="." unique_id=749177365 instance=ExtResource("4_lbhrr")]
 position = Vector2(319, 215)
+
+[node name="Coin2" parent="." unique_id=627775020 instance=ExtResource("4_lbhrr")]
+position = Vector2(618, 183)
+
+[node name="Coin3" parent="." unique_id=1339624765 instance=ExtResource("4_lbhrr")]
+position = Vector2(536, 151)
+
+[node name="Coin4" parent="." unique_id=1533094403 instance=ExtResource("4_lbhrr")]
+position = Vector2(522, 151)
+
+[node name="Coin5" parent="." unique_id=1668216734 instance=ExtResource("4_lbhrr")]
+position = Vector2(507, 151)
